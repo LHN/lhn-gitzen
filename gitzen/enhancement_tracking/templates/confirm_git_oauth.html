@@ -6,12 +6,12 @@
 <script>
 	$(document).ready(function() {
 		$('#build_cache_button').click(function() {
-			window.location.href='{% url confirm_cache_building is_reset=0 %}';
+			window.location.href='{% url "confirm_cache_building" is_reset=0 %}';
 		});
 	});
 	$(document).ready(function() {
 		$('#return_to_login_button').click(function() {
-			window.location.href='{% url login %}';
+			window.location.href='{% url "login" %}';
 		});
 	});
 </script>

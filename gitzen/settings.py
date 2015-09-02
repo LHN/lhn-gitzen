@@ -2,6 +2,8 @@
 
 import os
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 # Environment variables are Strings, not booleans
 DEBUG = False
 env_debug = os.environ.get('GITZEN_DEBUG', 'False')
@@ -9,13 +11,15 @@ if not env_debug == 'False':
     DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+WSGI_APPLICATION = 'gitzen.wsgi.application'
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
 MANAGERS = ADMINS
 
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 from memcacheify import memcacheify
 
@@ -73,7 +77,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('GITZEN_SMTP_PASSWORD', '')
 MEDIA_ROOT = os.environ.get('GITZEN_MEDIA_ROOT', '')
 if not MEDIA_ROOT:
     MEDIA_ROOT = os.path.abspath(
-        os.path.join(PROJECT_ROOT, '..', 'upload'))
+        os.path.join(BASE_DIR, '..', 'upload'))
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -89,7 +93,7 @@ if not MEDIA_ROOT:
 STATIC_ROOT = os.environ.get('GITZEN_STATIC_ROOT', '')
 if not STATIC_ROOT:
     STATIC_ROOT = os.path.abspath(
-        os.path.join(PROJECT_ROOT, '..', 'static'))
+        os.path.join(BASE_DIR, '..', 'static'))
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -104,7 +108,7 @@ ADMIN_MEDIA_PREFIX = STATIC_URL + 'static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'media'),
+    os.path.join(BASE_DIR, 'media'),
 )
 
 # List of finder classes that know how to find static files in
@@ -141,7 +145,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'gitzen.urls'
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_ROOT, 'templates'),
+    os.path.join(BASE_DIR, 'templates'),
 )
 
 INSTALLED_APPS = (

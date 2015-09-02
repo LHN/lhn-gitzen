@@ -8,17 +8,17 @@
 <script>
 	$(document).ready(function() {
 		$('#normal_view_button').click(function() {
-			window.location.href='{% url home %}';
+			window.location.href='{% url "home" %}';
 		});
 	});
 	$(document).ready(function() {
 		$('#reset_cache_button').click(function() {
-			window.location.href='{% url confirm_cache_building is_reset=1 %}';
+			window.location.href='{% url "confirm_cache_building" is_reset=1 %}';
 		});
 	});
 	$(document).ready(function() {
 		$('#logout_button').click(function() {
-			window.location.href='{% url logout %}';
+			window.location.href='{% url "logout" %}';
 		});
 	});
 	$(document).ready(function() {

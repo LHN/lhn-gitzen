@@ -83,18 +83,18 @@
 
 	$(document).ready(function() {
 		$('#goto_change_settings_button').click(function() {
-			window.location.href='{% url change_account_settings %}';
+			window.location.href='{% url "change_account_settings" %}';
 		});
 	});
 	$(document).ready(function() {
 		$('#logout_button').click(function() {
-			window.location.href='{% url logout %}';
+			window.location.href='{% url "logout" %}';
 		});
 	});
 	{% if is_group_superuser %}
 		$(document).ready(function() {
 			$('#superuser_view_button').click(function() {
-				window.location.href='{% url superuser_home %}';
+				window.location.href='{% url "superuser_home" %}';
 			});
 		});
 	{% endif %}
